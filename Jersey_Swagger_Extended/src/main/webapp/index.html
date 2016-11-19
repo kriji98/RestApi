@@ -5,13 +5,17 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-		document.write(Date());
-	</script>
-	<button id="button">Get Users</button>
-	<table id="usersTable"></table>
+	<form id="input-data-books">
+		<input id="name-book" type="text" required/>
+		<input id="author-name-book" type="text" required/>
+		<input id="genre" type="text" required/>
+		<input id="year-issue" type="number" required/>	
+		<input type="submit" name = "Add book">
+	</form>
+	<table id="booksTable"></table>
 </body>
 </html>
