@@ -1,1 +1,50 @@
 @CHARSET "UTF-8";
+
+body {
+	background-image: url("seigaiha.png");
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-family: "Brush Script MT", cursive;
+	font-size: 50px;
+}
+
+
+tr{
+	border: none;
+	padding-bottom: 3px;
+	padding-top:3px;
+		
+}
+
+table {
+	border: 1px solid #6c6c6c;
+	border:none;
+	border-collapse: collapse;
+	border-radius: 5px;
+	font-size: 20px;
+	text-align: center;
+	width: 100%;
+	background-color: rgba(100, 141, 235, 0.2);
+	margin-top: 20px;
+}
+
+input[type=text], input[type=number] {
+	border-radius: 5px;
+	padding: 5px 8px;
+	display: inline-block;
+
+}
+
+input[type=submit] {
+	border-radius: 5px;
+	padding: 5px 8px;
+	width: 200px; 
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	background-color: #a0a7fc;
+
+}

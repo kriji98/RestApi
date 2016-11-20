@@ -9,13 +9,23 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>BOOKS</h1>
 	<form id="input-data-books">
-		<input id="name-book" type="text" required/>
-		<input id="author-name-book" type="text" required/>
-		<input id="genre" type="text" required/>
-		<input id="year-issue" type="number" required/>	
-		<input type="submit" name = "Add book">
+			<input id="name-book" type="text" placeholder="Name" required/>
+			<input id="author-name-book" type="text" placeholder="Author" required/>
+			<input id="genre" type="text" placeholder="Genre" required/>
+			<input id="year-issue" type="number" placeholder="Year issue" required/>	
+			<input type="submit" name = "Add book">
 	</form>
-	<table id="booksTable"></table>
+	<table id="booksTable">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Author</th>
+			<th>Genre</th>
+			<th>Year issue</th>
+		</tr>
+	</table>
+	<!-- <table id="booksTable"></table> -->
 </body>
 </html>

@@ -9,10 +9,10 @@ public class BookData {
 
 	public BookData() {
 		bookData = new ArrayList<>();
-		bookData.add(new Book("The mortal instruments", "JK", "genre", 2010));
-		bookData.add(new Book("Tha fault in out stars", "Jhon green", "genre", 1999));
-		bookData.add(new Book("Twilight", "GM", "genre", 2011));
-		bookData.add(new Book("Let it snow", "GN", "genre", 1015));
+		bookData.add(new Book("The mortal instruments", " Cassandra Clare", "	Fantasy", 2007));
+		bookData.add(new Book("Tha fault in out stars", "John green", "Young adult novel", 2012));
+		bookData.add(new Book("Let it snow", "John Green", "Young Adult Fiction", 2011));
+		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013));
 	}
 
 	public static BookData getData() {
