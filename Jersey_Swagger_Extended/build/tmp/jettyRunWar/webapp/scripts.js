@@ -1,9 +1,11 @@
-function getData() {
+function getData(argument) {
 	$.ajax({
-		url : "http://localhost:8081/rst/api/books",
-		type : "GET",
-		dataType : "json",
-		success : function(data) {
+		url: "http://localhost:8081/rst/api/books",
+		type: "GET",
+		dataType: "json",
+		data: argument,
+		success: function(data) {
+			$("#booksTable tr").remove();
 			console.log(data);
 			$.each(data, function(index) {
 				var tr = $('<tr>');
@@ -19,25 +21,38 @@ function getData() {
 }
 
 $(document).ready(function() {
-	getData();
+	getData("");
 	$('#input-data-books').submit(function(event) {
 		event.preventDefault();
 		var submissionData = {
-			name : $('#name-book').val(),
+			name: $('#name-book').val(),
 			authorName : $('#author-name-book').val(),
-			genre : $('#genre').val(),
-			yearIssue : $('#year-issue').val()
+			genre: $('#genre').val(),
+			yearIssue: $('#year-issue').val()
 		}
 		console.log(submissionData);
 		$.ajax({
-			type : 'POST',
-			data : JSON.stringify(submissionData),
-			url : 'api/books',
+			type: 'POST',
+			data: JSON.stringify(submissionData),
+			url: 'api/books',
 			contentType : 'application/json'
 		});
 		document.getElementById("name-book").value = '';
 		document.getElementById("author-name-book").value = '';
 		document.getElementById("genre").value = '';
 		document.getElementById("year-issue").value = '';
+	});
+	
+	$('#filter-books').submit(function(event) {
+		event.preventDefault();
+		var filterData = {
+			name: $('#filter-name-book').val(),
+			authorName : $('#filter-author-book').val(),
+			genre: $('#filter-genre').val(),
+			yearIssue: $('#filter-year-issue').val()
+		}
+		console.log(filterData);
+		
+		getData(filterData);
 	});
 });

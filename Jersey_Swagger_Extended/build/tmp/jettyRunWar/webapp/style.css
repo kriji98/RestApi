@@ -35,8 +35,8 @@ input[type=text], input[type=number] {
 	border-radius: 5px;
 	padding: 5px 8px;
 	display: inline-block;
-	margin-right:auto; 
-	margin-left:auto;
+	width: 20%;
+
 }
 
 input[type=submit] {
@@ -47,6 +47,5 @@ input[type=submit] {
 	cursor: pointer;
 	display: inline-block;
 	background-color: #a0a7fc;
-	margin-right:auto; 
-	margin-left:auto;
+	width: 20%;
 }

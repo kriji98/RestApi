@@ -15,17 +15,28 @@
 			<input id="author-name-book" type="text" placeholder="Author" required/>
 			<input id="genre" type="text" placeholder="Genre" required/>
 			<input id="year-issue" type="number" placeholder="Year issue" required/>	
-			<input type="submit" name = "Add book">
+			<input type="submit" value = "Add book">
 	</form>
-	<table id="booksTable">
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Author</th>
-			<th>Genre</th>
-			<th>Year issue</th>
-		</tr>
+	
+	<form id="filter-books">
+		<input id="filter-name-book" type="text" placeholder="Name"/>
+		<input id="filter-author-book" type="text" placeholder="Author"/>
+		<input id="filter-genre" type="text" placeholder="Genre"/>
+		<input id="filter-year-issue" type="number" placeholder="Year issue"/>	
+		<input type="submit" value = "Filter">
+	</form>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Author</th>
+				<th>Genre</th>
+				<th>Year issue</th>
+			</tr>
+		</thead>
+		<tbody id="booksTable"/>
 	</table>
-	<!-- <table id="booksTable"></table> -->
 </body>
 </html>
