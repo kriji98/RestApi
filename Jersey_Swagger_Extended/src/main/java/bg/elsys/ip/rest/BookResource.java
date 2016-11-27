@@ -30,23 +30,25 @@ public class BookResource {
 							 @QueryParam("genre") final String genre,
 							 @QueryParam("yearIssue") final int yearIssue) {
 		
-		List<Book> Books = BookData.getData().getBookData();
+		List<Book> books = BookData.getData().getBookData();
+
 		if(name != null && !("".equals(name))){
-			Books = Filter.filterName(name, Books);
+			books = Filter.filterName(name, books);
 		}
 		
 		if(authorName != null && !("".equals(authorName))){
-			Books = Filter.filterAuthor(authorName, Books);
+			books = Filter.filterAuthor(authorName, books);
 		}
 		
 		if(genre != null && !("".equals(genre))){
-			Books = Filter.filterGenre(genre, Books);
+			books = Filter.filterGenre(genre, books);
 		}
 		
-		if(yearIssue >= 0){
-			Books = Filter.filterYearIssue(yearIssue, Books);
+		if(yearIssue > 0){
+			books = Filter.filterYearIssue(yearIssue, books);
 		}
-		return Response.ok(Books).build();
+		
+		return Response.ok(books).build();
 	}
 
 	@POST

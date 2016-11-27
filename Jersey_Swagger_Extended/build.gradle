@@ -2,7 +2,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
-apply plugin: 'jetty' 
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -10,13 +10,13 @@ repositories {
     mavenCentral()
 }
 
-jettyRunWar {
-	httpPort = 8081
+gretty {
+	port = 8081
 }
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    	compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+    compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
     compile 'org.glassfish.jersey.core:jersey-server:2.7'
     compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.7'
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.7'

@@ -9,7 +9,7 @@ public class BookData {
 
 	public BookData() {
 		bookData = new ArrayList<>();
-		bookData.add(new Book("The mortal instruments", " Cassandra Clare", "	Fantasy", 2007));
+		bookData.add(new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 2007));
 		bookData.add(new Book("Tha fault in out stars", "John green", "Young adult novel", 2012));
 		bookData.add(new Book("Let it snow", "John Green", "Young Adult Fiction", 2011));
 		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013));

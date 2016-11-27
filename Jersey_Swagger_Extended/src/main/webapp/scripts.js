@@ -9,11 +9,11 @@ function getData(argument) {
 			console.log(data);
 			$.each(data, function(index) {
 				var tr = $('<tr>');
-				tr.append("<td> " + data[index].id + "</td>");
-				tr.append("<td> " + data[index].name + "</td>");
-				tr.append("<td> " + data[index].authorName + "</td>");
-				tr.append("<td> " + data[index].genre + "</td>");
-				tr.append("<td> " + data[index].yearIssue + "</td>");
+				tr.append("<td>" + data[index].id + "</td>");
+				tr.append("<td>" + data[index].name + "</td>");
+				tr.append("<td>" + data[index].authorName + "</td>");
+				tr.append("<td>" + data[index].genre + "</td>");
+				tr.append("<td>" + data[index].yearIssue + "</td>");
 				$("#booksTable").append(tr);
 			});
 		}
