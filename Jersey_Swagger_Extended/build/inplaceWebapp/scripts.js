@@ -1,3 +1,6 @@
+var currentPage = 1;
+var sentRequest = false;
+
 function getData(argument) {
 	$.ajax({
 		url: "http://localhost:8081/rst/api/books",
@@ -5,7 +8,13 @@ function getData(argument) {
 		dataType: "json",
 		data: argument,
 		success: function(data) {
-			$("#booksTable tr").remove();
+			
+			if(argument.newPage == undefined){
+				$("#booksTable tr").remove();
+			} else {
+				currentPage = argument.newPage + 1;
+			}
+			
 			console.log(data);
 			$.each(data, function(index) {
 				var tr = $('<tr>');
@@ -16,12 +25,18 @@ function getData(argument) {
 				tr.append("<td>" + data[index].yearIssue + "</td>");
 				$("#booksTable").append(tr);
 			});
+			sentRequest = false;
 		}
 	});
 }
 
 $(document).ready(function() {
-	getData("");
+	var pageIndex = {
+			bookNumber: 20,
+			newPage: currentPage
+	};
+	getData(pageIndex);
+	
 	$('#input-data-books').submit(function(event) {
 		event.preventDefault();
 		var submissionData = {
@@ -30,6 +45,7 @@ $(document).ready(function() {
 			genre: $('#genre').val(),
 			yearIssue: $('#year-issue').val()
 		}
+		
 		console.log(submissionData);
 		$.ajax({
 			type: 'POST',
@@ -37,6 +53,7 @@ $(document).ready(function() {
 			url: 'api/books',
 			contentType : 'application/json'
 		});
+		
 		document.getElementById("name-book").value = '';
 		document.getElementById("author-name-book").value = '';
 		document.getElementById("genre").value = '';
@@ -45,14 +62,45 @@ $(document).ready(function() {
 	
 	$('#filter-books').submit(function(event) {
 		event.preventDefault();
+		
 		var filterData = {
 			name: $('#filter-name-book').val(),
 			authorName : $('#filter-author-book').val(),
 			genre: $('#filter-genre').val(),
-			yearIssue: $('#filter-year-issue').val()
-		}
+			yearIssue: $('#filter-year-issue').val(),
+			newPage: 1,
+			bookNumber: 20
+		};
 		console.log(filterData);
 		
-		getData(filterData);
+		$("#booksTable tr").remove();
+		if(!sentRequest){
+			currentPage = 1;
+			getData(filterData);
+			sentRequest = true;
+		}
+		
 	});
+	console.log("moje bi tuka");
+	$(window).scroll(function() {
+		console.log("veche sym tyka");
+		if ($(window).scrollTop() + $(window).height() >= $('body').height()) {
+			console.log("eto tuka sym");
+			console.log($(window).scrollTop());
+			console.log($(window).height());
+			console.log($('body').height());
+			var pageIndex = {
+					name: $('#filter-name-book').val(),
+					authorName : $('#filter-author-book').val(),
+					genre: $('#filter-genre').val(),
+					yearIssue: $('#filter-year-issue').val(),
+					bookNumber: 20,
+					newPage: currentPage
+			};
+			if (!sentRequest) {
+				getData(pageIndex);
+				sentRequest = true;
+			}
+		}
+	})
 });

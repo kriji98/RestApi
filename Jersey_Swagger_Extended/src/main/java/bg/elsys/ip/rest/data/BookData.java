@@ -9,24 +9,24 @@ public class BookData {
 
 	public BookData() {
 		bookData = new ArrayList<>();
+		//Book exampleBook = new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 2007);
 		bookData.add(new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 2007));
-		bookData.add(new Book("Tha fault in out stars", "John green", "Young adult novel", 2012));
+		bookData.add(new Book("Tha fault in out stars", "John Green", "Young adult novel", 2012));
 		bookData.add(new Book("Let it snow", "John Green", "Young Adult Fiction", 2011));
 		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013));
+
+		for (int i = 0; i < 40; i++) {
+			Book exampleBook = new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 2007);
+			bookData.add(exampleBook);
+			
+		}
 		
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "ggggggg", 1999));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2012));
-		bookData.add(new Book("abvgdejzi", "Kami Garcia", "fantasy", 2010));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2011));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "ggggggg", 2015));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2016));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2009));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2003));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 1998));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 1997));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 1995));
-		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 1896));
+		for (int i = 0; i < 25; i++) {
+			Book exampleBook = new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013);
+			bookData.add(exampleBook);
+			
+		}
+		
 	}
 
 	public static BookData getData() {

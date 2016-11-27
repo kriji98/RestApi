@@ -26,28 +26,40 @@ public class BookResource {
 	@ApiOperation(value = "get list of users", response = User.class, responseContainer = "List")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getBooks(@QueryParam("name") final String name,
-							 @QueryParam("authorName") final String authorName,
-							 @QueryParam("genre") final String genre,
-							 @QueryParam("yearIssue") final int yearIssue) {
-		
+			@QueryParam("authorName") final String authorName,
+			@QueryParam("genre") final String genre,
+			@QueryParam("yearIssue") final int yearIssue,
+			@QueryParam("bookNumber") final int bookNumber,
+			@QueryParam("newPage") final int newPage) {
+
 		List<Book> books = BookData.getData().getBookData();
 
-		if(name != null && !("".equals(name))){
+		if (name != null && !("".equals(name))) {
 			books = Filter.filterName(name, books);
 		}
-		
-		if(authorName != null && !("".equals(authorName))){
+
+		if (authorName != null && !("".equals(authorName))) {
 			books = Filter.filterAuthor(authorName, books);
 		}
-		
-		if(genre != null && !("".equals(genre))){
+
+		if (genre != null && !("".equals(genre))) {
 			books = Filter.filterGenre(genre, books);
 		}
-		
-		if(yearIssue > 0){
+
+		if (yearIssue > 0) {
 			books = Filter.filterYearIssue(yearIssue, books);
 		}
 		
+		System.out.println(newPage);
+		System.out.println(bookNumber);
+		
+
+		int start = Math.min(bookNumber * (newPage - 1), books.size());
+		int end = Math.min(bookNumber * newPage, books.size());
+
+		books = books.subList(start, end);
+		System.out.println(newPage);
+		System.out.println(bookNumber);
 		return Response.ok(books).build();
 	}
 
@@ -55,7 +67,7 @@ public class BookResource {
 	@ApiOperation(value = "create new user", response = User.class)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createBook(Book book) {	
+	public Response createBook(Book book) {
 		BookData.getData().addBook(book);
 		return Response.status(Status.CREATED).build();
 	}
