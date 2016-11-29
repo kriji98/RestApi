@@ -16,7 +16,7 @@ public class BookData {
 		bookData.add(new Book("Beautiful creatures", "Kami Garcia", "fantasy", 2013));
 
 		for (int i = 0; i < 40; i++) {
-			Book exampleBook = new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 2007);
+			Book exampleBook = new Book("The mortal instruments", "Cassandra Clare", "Fantasy", 1990 + i);
 			bookData.add(exampleBook);
 			
 		}

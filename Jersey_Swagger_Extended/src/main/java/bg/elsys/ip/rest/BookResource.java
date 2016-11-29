@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 @Path("/books")
 @Api("books")
 public class BookResource {
-
+	
 	@GET
 	@ApiOperation(value = "get list of users", response = User.class, responseContainer = "List")
 	@Produces(MediaType.APPLICATION_JSON)
