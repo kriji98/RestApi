@@ -19,11 +19,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Path("/books")
-@Api("books")
+@Api("book")
 public class BookResource {
 	
 	@GET
-	@ApiOperation(value = "get list of users", response = User.class, responseContainer = "List")
+	@ApiOperation(value = "get list of books", response = Book.class, responseContainer = "List")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getBooks(@QueryParam("name") final String name,
 			@QueryParam("authorName") final String authorName,
@@ -64,7 +64,7 @@ public class BookResource {
 	}
 
 	@POST
-	@ApiOperation(value = "create new user", response = User.class)
+	@ApiOperation(value = "create new book", response = Book.class)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response createBook(Book book) {

@@ -1,12 +1,22 @@
 package bg.elsys.ip.rest.data;
 
-public class Book {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel
+public class Book {
+	
+	
 	private static int idCount = 0;
+	@ApiModelProperty(value = "shows ID for the book", example = "5")
 	private int id;
+	@ApiModelProperty(value = "shows the name of the book", example = "Under the yoke")
 	private String name;
+	@ApiModelProperty(value = "shows the author's name of the book", example = "Ivan Vazov")
 	private String authorName;
+	@ApiModelProperty(value = "shows the genre of the book", example = "Novel")
 	private String genre;
+	@ApiModelProperty(value = "shows year of issue for the book", example = "1888")
 	private int yearIssue;
 
 	public Book() {
